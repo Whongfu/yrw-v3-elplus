@@ -1,2 +1,8 @@
-# yrw-v3-elplus
-v3+element-plus+vite
+## Usage
+
+```bash
+git clone https://github.com/Whongfu/yrw-v3-elplus.git
+cd yrw-v3-elplus
+npm i
+npm run dev
+```
