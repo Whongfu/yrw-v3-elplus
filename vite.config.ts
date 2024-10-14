@@ -23,16 +23,21 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root)
   console.log(111, env)
   return {
+    // root: 指定项目的根目录。默认是 index.html 所在目录
     // base: 用于指定项目的基础路径，通常用于将项目部署到子路径的情况。 默认值：'/',
-    // server: { // 用于配置开发服务器。
+    // server: { // 配置开发服务器的相关选项。
     //   host: true, // 监听所有地址
     //   https: false, // 是否开启 https
-    //   port: env.VITE_PORT,
+    //   port: env.VITE_PORT, // 指定开发服务器的端口
+    //   proxy:{}  // 配置代理，用于解决跨域问题
     // },
-    resolve: {
+    resolve: { // 配置模块解析的相关选项，如别名和扩展名
+      // alias: 定义模块路径别名。
+      // extensions: 配置文件扩展名。
       alias: {
         '@/': `${pathSrc}/`,
       },
+      // extensions: ['.js', '.ts', 'vue']
     },
     css: {
       preprocessorOptions: {
@@ -41,7 +46,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         },
       },
     },
-    plugins: [ // 注册插件
+    plugins: [ // 插件数组，用于扩展 Vite 的功能
       vue(),
       Components({
         // allow auto load markdown components under `./src/components/`
