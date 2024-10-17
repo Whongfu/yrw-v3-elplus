@@ -21,7 +21,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   // import.meta.env是在运行时获取环境变量的值，适用于应用程序代码中需要动态获取环境变量的场合。（配置文件中获取不到，因为配置文件是在构建时被读取！！！)
   const root = process.cwd();
   const env = loadEnv(mode, root)
-  console.log(111, env)
   return {
     // root: 指定项目的根目录。默认是 index.html 所在目录
     // base: 用于指定项目的基础路径，通常用于将项目部署到子路径的情况。 默认值：'/',
@@ -29,15 +28,19 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     //   host: true, // 监听所有地址
     //   https: false, // 是否开启 https
     //   port: env.VITE_PORT, // 指定开发服务器的端口
-    //   proxy:{}  // 配置代理，用于解决跨域问题
+    //   proxy:{ // 配置代理，用于解决跨域问题
+    //     '/api': {
+    //       target: 'https://api.example.com', // '/api' 开头的请求都会被代理地址
+    //       changeOrigin: true, // 请求头中的 Origin 会被改为目标服务器地址，从而避免跨域问题
+    //       rewrite: (path) => path.replace(/^\/api/, ''), // 将前端请求路径 /api/users 重写为 /users，确保与后端路径匹配
+    //     },
+    //   }  
     // },
     resolve: { // 配置模块解析的相关选项，如别名和扩展名
-      // alias: 定义模块路径别名。
-      // extensions: 配置文件扩展名。
-      alias: {
+      alias: { // 定义模块路径别名
         '@/': `${pathSrc}/`,
       },
-      // extensions: ['.js', '.ts', 'vue']
+      // extensions: ['.js', '.ts', 'vue'] // 配置文件扩展名
     },
     css: {
       preprocessorOptions: {
