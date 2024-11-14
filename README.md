@@ -8,7 +8,7 @@ npm run dev
 ```
 
 
-## package.json 
+## package.json
 
 ```
 name -- 定义项目的名称，通常全小写并使用短横线连接。
