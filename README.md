@@ -8,17 +8,23 @@ npm run dev
 ```
 
 
-## package.json
+## package.json 
 
 ```
+name -- 定义项目的名称，通常全小写并使用短横线连接。
+private -- 可以有效防止意外发布项目到 npm，保证项目的隐私。（如果没有 private: true 且执行了 npm publish 命令，项目会被发布到 npm。设置这个字段可以避免这种意外操作。）
+version -- 项目的版本号，遵循语义化版本控制（semver）规范，如 1.0.0，分别表示主版本、次版本和补丁版本。
+description -- 项目的描述，简要说明项目的目的或功能。
+scripts -- 项目中常用的命令，使用 npm run 或 yarn 运行。
+dependencies -- 运行时依赖，项目在生产环境下需要的库。
+devDependencies -- 开发时依赖，只在开发环境中使用的库。例如构建工具、代码检查工具等
+
 dependencies {
-    name -- 定义项目的名称，通常全小写并使用短横线连接。
-    private -- 可以有效防止意外发布项目到 npm，保证项目的隐私。（如果没有 private: true 且执行了 npm publish 命令，项目会被发布到 npm。设置这个字段可以避免这种意外操作。）
-    version -- 项目的版本号，遵循语义化版本控制（semver）规范，如 1.0.0，分别表示主版本、次版本和补丁版本。
-    description -- 项目的描述，简要说明项目的目的或功能。
-    scripts -- 项目中常用的命令，使用 npm run 或 yarn 运行。
-    dependencies -- 运行时依赖，项目在生产环境下需要的库。
-    devDependencies -- 开发时依赖，只在开发环境中使用的库。例如构建工具、代码检查工具等
+    生产需要的包
+    animate.css -- 动画（https://animate.style/）
+    vue
+    vue-router
+    axios
 }
 
 devDependencies {
@@ -116,7 +122,7 @@ devDependencies {
         3、ESNext 特性：支持最新的 ECMAScript 特性，比如 async/await、装饰器等，并可以编译为 ES5/ES6，以便兼容旧环境。
         4、大型项目的可维护性：TypeScript 对代码重构支持更好，有助于管理大型项目。
 
-    unocss -- 功能强大的原子化 CSS 引擎，提供了极简的 CSS 编写方式
+    unocss -- 功能强大的原子化 CSS 引擎，提供了极简的 CSS 编写方式。（https://unocss-cn.pages.dev/）
         1、极简配置：可以通过极少的配置或无需配置来使用。
         2、按需生成：只生成你使用的 CSS，保持生成的 CSS 文件非常小。
         3、支持原子化 CSS：类似 Tailwind 的实用类，但更加灵活。
